@@ -1,17 +1,16 @@
-function Navbar() {
+import { Link } from 'react-router-dom';
+const NavBar=() =>{
   return (
-    <nav className="navbar">
-      <div className="container">
-        <a href="/" className="navbar-brand">Fake Store</a>
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a href="/" className="nav-link">Home</a>
-          </li>
-          {/* Add more navigation links as needed */}
-        </ul>
+      // navigation panel header    
+      <div className='NavBar'>     
+      <div><h2>FSA Fake Store 2023</h2></div> 
+      <Link to="/" className='NavTab'>Home</Link>
+      <Link to="/allProducts" className='NavTab'>Products</Link>
+      {/* <Link to="/login" className='NavTab'>Login</Link> */}
+      <Link to="/loginSample" className='NavTab'>SignUp / Log In</Link>         
       </div>
-    </nav>
+  
   );
 }
 
-export default Navbar;
+export default NavBar;
