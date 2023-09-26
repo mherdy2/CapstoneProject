@@ -1,11 +1,10 @@
 import { useState } from 'react';
-// import { Link } from 'react-router-dom';
 import BASE_URL from '../../API/index.js';
 import './login.css'
-function Login() {
+
+function Login({ isLoggedIn, setLoggedIn }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = async () => {
     try {
@@ -20,6 +19,7 @@ function Login() {
       if (response.status === 200) {
         // Login successful
         setLoggedIn(true);
+        setUsername(username); // Set the username when logged in
       } else {
         // Login failed, display an error or handle as needed
         alert('Invalid username or password');
@@ -30,11 +30,17 @@ function Login() {
   };
 
   return (
-    <div >
-      <h2>Fake Store Log-In</h2>
-      {loggedIn ? (
-        <p>You are logged in as {username}</p>
-        
+    <div>
+      <div className="home-container">
+        <h1 className="home-heading">Welcome to FAKE STORE Marketplace Online!</h1>
+        <img
+          src="https://revistasalvador.com/wp-content/uploads/2018/10/Online-Shop.jpg"
+          alt="Something"
+          className="home-image"
+        />
+      </div>
+      {isLoggedIn ? (
+        <p>Hello {username}</p>
       ) : (
         <div>
           <label>
