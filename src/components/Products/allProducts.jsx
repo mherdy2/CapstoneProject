@@ -1,92 +1,72 @@
-import  { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import BASE_URL from '../../API/index';
-import './products.css';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { fetchAllProducts } from "../../API/product";
+import "./products.css"
 
-function AllProducts() {
+export default function ProductList() {
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All Categories');
+  const [search, setSearch] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch product data from the Fake Store API using the Fetch API
-    fetch(`${BASE_URL}/products`)
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data);
-        setFilteredProducts(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching products:', error);
-      });
+    const fetchData = async () => {
+      const productsData = await fetchAllProducts();
+      setProducts(productsData);
+    };
+    fetchData();
   }, []);
 
-  useEffect(() => {
-    // Filter products based on searchQuery and selectedCategory when they change
-    const filtered = products.filter((product) => {
-      const matchesCategory =
-        selectedCategory === 'All Categories' || product.category === selectedCategory;
-      const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-    setFilteredProducts(filtered);
-  }, [searchQuery, selectedCategory, products]);
+  const filterProducts = search
+    ? products.filter((product) =>
+        product.title.toLowerCase().includes(search.toLowerCase())
+      )
+    : products;
 
-  const handleSearch = (event) => {
-    setSearchQuery(event.target.value);
-  };
+  function addToCart(product) {
+    const existingCart = JSON.parse(localStorage.getItem("MyCart")) || [];
+    console.log("Item Added to Cart");
+    const existingProduct = existingCart.findIndex((item) => item.id === product.id);
 
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
-  };
+    if (existingProduct !== -1) {
+      existingCart[existingProduct].quantity += 1;
+    } else {
+      existingCart.push({ ...product, quantity: 1 });
+    }
+    localStorage.setItem("MyCart", JSON.stringify(existingCart));
+  }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>On Sale</h1>
-        <div className="search-bar">
+    <div className="app">
+      <div className="search">
+        <label htmlFor="search">
+          Search:{" "}
           <input
             type="text"
-            placeholder="Search by product name"
-            value={searchQuery}
-            onChange={handleSearch}
+            name="search"
+            placeholder="Search Product"
+            id={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+            }}
           />
-        </div>
-        <div className="category-select">
-          <label htmlFor="category">Category:</label>
-          <select
-            id="category"
-            value={selectedCategory}
-            onChange={handleCategoryChange}
-          >
-            <option value="All Categories">All Categories</option>
-            {products.map((product) => (
-              <option key={product.id} value={product.category}>
-                {product.category}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="product-list">
-          {filteredProducts.map((product) => (
-            <div className="product" key={product.id}>
-              <h3>{product.title}</h3>
-              <img
-                src={product.image} // Use the imageUrl property from your product data
-                alt={product.title}
-                className="product-image"
-                style={{ width: '200px' }}
-              />
-              <div className='viewDetails'>
-              <Link to={`/product/${product.id}`}>View Details</Link>
+        </label>
+      </div>
+      <div className="products">
+        {filterProducts ? (
+          filterProducts.map((product) => {
+            return (
+              <div key={product.id} className="product">
+                <h4>{product.title}</h4>
+                <img src={product.image} width="50px" height="50px" alt={product.title} />
+                <p>Price: ${product.price}</p>
+                <button onClick={() => addToCart(product)}>Buy</button>
+                <button onClick={() => navigate(`/SingleProduct/${product.id}`)}>See Details</button>
               </div>
-            </div>
-          ))}
-        </div>
-      </header>
+            );
+          })
+        ) : null}
+      </div>
     </div>
   );
 }
-
-export default AllProducts;

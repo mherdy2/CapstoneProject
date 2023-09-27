@@ -1,15 +1,15 @@
 import {useState} from 'react'
-import {Routes, Route} from 'react-router-dom'//importing routes
-import AllProducts from './components/Products/allProducts.jsx'//importing all products
-// import Home from './components/home.jsx' //importing home function
-import SingleProduct from './components/Products/SingleProduct.jsx' //importing single product
-import Footer from './components/footer.jsx' //importing footer
-import AllUsers from './components/Users/allUser.jsx'//importing all users
-import SingleUser from './components/Users/singleUser.jsx' //importing single user
-import Cart from './components/Cart/allCart.jsx' //importing carts all content
+import {Routes, Route} from 'react-router-dom'
+import AllProducts from './components/Products/allProducts.jsx'
+import SingleProduct from './components/Products/SingleProduct.jsx' 
+import Footer from './components/footer.jsx' 
+import AllUsers from './components/Users/allUser.jsx'
+import SingleUser from './components/Users/singleUser.jsx' 
+import Cart from './components/Cart/allCart.jsx' 
 import GroupOrdersByUser from './components/Cart/userCart.jsx'
-import Login from './components/Login/login.jsx' //importing login
-// import LoginSample from './components/Login/loginSample.jsx' //importing login
+import Login from './components/Login/login.jsx' 
+import Logout from './components/Login/logout.jsx' 
+import MyCart from './components/Cart/customerCart.jsx' 
 import NavBar from './components/Navbar.jsx'
 
 const App=()=>{
@@ -17,28 +17,27 @@ const App=()=>{
   const [ isLoggedIn, setLoggedIn ]  = useState (false)
 
   return ( 
-
     <>
     <div id="main-section">
-    {isLoggedIn ? <NavBar isLoggedIn = {isLoggedIn}/> :null}
-    
+    {isLoggedIn ? <NavBar isLoggedIn = {isLoggedIn}/> :null}    
+
     <Routes>  
         <Route path="/" element={<Login isLoggedIn = {isLoggedIn} setLoggedIn = {setLoggedIn}/>} />      
-        {/* <Route path="/" exact element={<Home />} />       */}
         <Route path="allProducts" element={<AllProducts />} />
-        <Route path="/product/:productId" element={<SingleProduct />} />
+        <Route path="/SingleProduct/:id" element={<SingleProduct />} />
         <Route path="/allUser" element={<AllUsers />} />
-        <Route path="/user/:userId" element={<SingleUser />} /> {/* Define a route for viewing a single user */}
-        <Route path="/allCart" element={<Cart />} /> {/* Define a route for viewing a single user */}
-        <Route path="/userCart" element={<GroupOrdersByUser />} /> {/* Define a route for viewing a single user */}
+        <Route path="/user/:userId" element={<SingleUser />} /> 
+        <Route path="/allCart" element={<Cart />} /> 
+        <Route path="/userCart" element={<GroupOrdersByUser />} /> 
         <Route path="/footer" element={<Footer />} /> 
-        {/* <Route path="/loginSample" element={<LoginSample />} />  */}
-    </Routes>  
+        <Route path="/customerCart" element={<MyCart />} /> 
+        <Route path="/logout" element={<Logout setLoggedIn={setLoggedIn} />} />
+  </Routes>  
+
     {isLoggedIn ? <Footer isLoggedIn = {isLoggedIn}/> :null}  
       
     </div>     
     </>
-
   );
 }
 

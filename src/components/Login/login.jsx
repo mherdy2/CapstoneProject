@@ -30,16 +30,8 @@ function Login({ isLoggedIn, setLoggedIn }) {
   };
 
   return (
-    <div>
-      <div className="home-container">
-        <h1 className="home-heading">Welcome to FAKE STORE Marketplace Online!</h1>
-        <img
-          src="https://revistasalvador.com/wp-content/uploads/2018/10/Online-Shop.jpg"
-          alt="Something"
-          className="home-image"
-        />
-      </div>
-      {isLoggedIn ? (
+    <div className='app'>
+     {isLoggedIn ? (
         <p>Hello {username}</p>
       ) : (
         <div>
@@ -64,6 +56,15 @@ function Login({ isLoggedIn, setLoggedIn }) {
           <button onClick={handleLogin}>Login</button>
         </div>
       )}
+      
+      <div className="home-container">
+        <h1 className="home-heading">Welcome to FAKE STORE Marketplace Online!</h1>
+        <img
+          src="https://revistasalvador.com/wp-content/uploads/2018/10/Online-Shop.jpg"
+          alt="Something"
+          className="home-image"
+        />
+      </div>
     </div>
   );
 }

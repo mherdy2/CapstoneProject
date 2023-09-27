@@ -1,33 +1,18 @@
-import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
-
-function Logout() {
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  const handleLogin = () => {
-    // Perform your login logic here, set loggedIn to true if login is successful.
-    setLoggedIn(true);
-  };
+const Logout = () => {
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Perform any necessary cleanup, like clearing user data from state
-    setLoggedIn(false);
+    localStorage.clear();
+    navigate("/login");
   };
 
   return (
     <div>
-      {loggedIn ? (
-        <div>
-          <p>You are logged in</p>
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      ) : (
-        <div>
-          <Login onLogin={handleLogin} />
-        </div>
-      )}
+      <button onClick={handleLogout}>Sign Out</button>
     </div>
   );
-}
+};
 
 export default Logout;
