@@ -32,7 +32,7 @@ export default function CheckOut() {
        <h4 className="title">Checkout Details</h4>
         <div className="checkoutWhole">
           <div className="checkoutContents">
-            <h4 className="subTitle">Personal Information</h4>
+            <h2 className="app">Personal Information</h2>
             <form onSubmit={handlePayment} className="checkoutForm">
             <div>
               <input 

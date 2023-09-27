@@ -99,7 +99,7 @@
   padding: 10px 20px;
   cursor: pointer;
   margin-top: 10px;
-  margin-right: 10px; /* Add a margin to the right */
+  margin-right: 10px; 
 }
 
 .product-details button:hover {

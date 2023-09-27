@@ -6,7 +6,7 @@ export default function Success() {
 
     return (
         <>
-            <div>
+            <div className="app"> 
                 <h4 className="title">Order has been placed,  see Email for the receipt!</h4>
                 <button className="btnBack" onClick={() =>{navigate('/allProducts')}}>Keep Shopping</button>
 
