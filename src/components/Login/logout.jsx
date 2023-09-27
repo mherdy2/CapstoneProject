@@ -1,16 +1,18 @@
-import { useNavigate } from "react-router-dom";
+// Logout.js
 
-const Logout = () => {
-  const navigate = useNavigate();
+import React from 'react';
 
+const Logout = ({ onLogout }) => {
   const handleLogout = () => {
-    localStorage.clear();
-    navigate("/login");
+    // Call the logout function passed as a prop
+    onLogout();
   };
 
   return (
     <div>
-      <button onClick={handleLogout}>Sign Out</button>
+      <h2>Logout</h2>
+      <p>Are you sure you want to logout?</p>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 };

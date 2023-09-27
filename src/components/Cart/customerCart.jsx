@@ -113,7 +113,7 @@ export default function MyCart() {
         ) : (
           <p>Your cart is empty.</p>
         )}
-        <p className="total">Your Total: ${total}</p>
+        <p className="total">Your Total: ${total.toFixed(2)}</p>
         <div>
           <button className="btnBack" onClick={() => navigate("/allProducts")}>
             Keep Shopping

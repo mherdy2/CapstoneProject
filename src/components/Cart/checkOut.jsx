@@ -65,7 +65,7 @@ export default function CheckOut() {
               />
             </div>
             
-            <h4 className="subTitle">Sending To</h4>
+            <h4 className="subTitle">Shipping Address</h4>
             <div>
               <input 
                 type="text" 

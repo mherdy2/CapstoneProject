@@ -135,7 +135,7 @@ margin-bottom: 75px;
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  margin: 20px auto; 
+  margin: 20px auto; ;
 }
 
 .btnCheckOut:hover {
