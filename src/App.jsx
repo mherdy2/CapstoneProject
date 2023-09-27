@@ -6,11 +6,12 @@ import Footer from './components/footer.jsx'
 import AllUsers from './components/Users/allUser.jsx'
 import SingleUser from './components/Users/singleUser.jsx' 
 import Cart from './components/Cart/allCart.jsx' 
-import GroupOrdersByUser from './components/Cart/userCart.jsx'
 import Login from './components/Login/login.jsx' 
 import Logout from './components/Login/logout.jsx' 
 import MyCart from './components/Cart/customerCart.jsx' 
 import NavBar from './components/Navbar.jsx'
+import CheckOut from './components/Cart/checkOut.jsx'
+import Success from './components/Cart/success.jsx'
 
 const App=()=>{
 
@@ -28,9 +29,10 @@ const App=()=>{
         <Route path="/allUser" element={<AllUsers />} />
         <Route path="/user/:userId" element={<SingleUser />} /> 
         <Route path="/allCart" element={<Cart />} /> 
-        <Route path="/userCart" element={<GroupOrdersByUser />} /> 
         <Route path="/footer" element={<Footer />} /> 
         <Route path="/customerCart" element={<MyCart />} /> 
+        <Route path="/checkOut" element={<CheckOut />} /> 
+        <Route path="/success" element={<Success />} /> 
         <Route path="/logout" element={<Logout setLoggedIn={setLoggedIn} />} />
   </Routes>  
 

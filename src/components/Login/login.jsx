@@ -32,7 +32,7 @@ function Login({ isLoggedIn, setLoggedIn }) {
   return (
     <div className='app'>
      {isLoggedIn ? (
-        <p>Hello {username}</p>
+        <p className='greeting'>Hello {username}</p>
       ) : (
         <div>
           <label>
@@ -58,7 +58,7 @@ function Login({ isLoggedIn, setLoggedIn }) {
       )}
       
       <div className="home-container">
-        <h1 className="home-heading">Welcome to FAKE STORE Marketplace Online!</h1>
+        <h1 className="home-heading">Welcome to FAKE STORE Online!</h1>
         <img
           src="https://revistasalvador.com/wp-content/uploads/2018/10/Online-Shop.jpg"
           alt="Something"

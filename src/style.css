@@ -60,5 +60,17 @@
     width: 100%;
     color: black;
   }
+  .logo-image {
+    width: 75px; /* Adjust the width to your desired size */
+    height: auto; /* Auto adjust the height to maintain the aspect ratio */
+  }
+
+  .storeName{
+    margin-left: 0px;
+  }
+  .greeting{
+    font-size: 30px;
+    text-transform: uppercase;
+  }
   
 

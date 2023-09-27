@@ -1,45 +1,143 @@
-/* Style for the Cart component */
-.cart-container {
-    margin: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-  }
-  
-  .cart-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .cart-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .cart-item {
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  .cart-item p {
-    margin: 0;
-  }
-  
-  .product-list {
-    list-style-type: none;
-    margin-top: 10px;
-    padding: 0;
-  }
-  
-  .product-item {
-    margin-top: 10px;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f5f5f5;
-  }
-  
+/* Style for the MyCart component */
+.userCart {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center horizontally */
+  margin: 20px auto; /* Center vertically and add margin */
+  padding: 20px;
+  border: 1px solid #ccc;
+  margin-bottom: 75px; 
+  border-radius: 5px;
+  background-color: #e0ecf0;
+  max-width: 400px; /* Optional: Limit the width of the cart for better readability */
+}
+
+.userCart h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.userCart p {
+  margin: 5px 0;
+}
+
+.userCart img {
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 10px;
+}
+
+.userCart .btnContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.userCart .btnDecrease,
+.userCart .btnIncrease,
+.userCart .btnDelete {
+  background-color: #d9534f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.userCart .btnDecrease:hover,
+.userCart .btnIncrease:hover,
+.userCart .btnDelete:hover {
+  background-color: #c9302c;
+}
+
+.userCart .total {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.userCart .btnBack,
+.userCart .btnCheck {
+  background-color: #5bc0de;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+.btnCheck{
+  margin-left: 15px;
+}
+
+.userCart .btnBack:hover,
+.userCart .btnCheck:hover {
+  background-color: #46b8da;
+}
+
+/* checkout */
+
+/* Style for the title */
+.mainForm{
+margin-bottom: 75px;
+}
+
+.title {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Style for the checkoutWhole container */
+.checkoutWhole {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* Style for the checkoutContents container */
+.checkoutContents {
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: left;
+  width: 80%; /* Adjust the width as needed */
+  max-width: 600px; /* Set a maximum width if desired */
+}
+
+/* Style for the subTitle */
+.subTitle {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+/* Style for the checkoutForm */
+.checkoutForm {
+  margin-top: 20px;
+}
+
+/* Style for the checkoutData input fields */
+.checkoutData {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for the btnCheckOut button */
+.btnCheckOut, .btnBack{
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin: 20px auto; 
+}
+
+.btnCheckOut:hover {
+  background-color: #0056b3;
+}
