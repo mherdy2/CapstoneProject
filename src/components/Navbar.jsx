@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 
+
 const NavBar=({isLoggedIn}) =>{
   return (  
     <>
@@ -17,7 +18,8 @@ const NavBar=({isLoggedIn}) =>{
       <Link to="/allProducts" className='NavTab'>Products</Link>
       <Link to="/customerCart" className='NavTab'> Basket</Link>
       <Link to="logout" className='NavTab'>Log-Out</Link>
-    {isLoggedIn ?null: <Link to = '/login'>Log In</Link>}
+
+          {isLoggedIn ?null: <Link to = '/login'>Log In</Link>}
     
     </div>     
     </div>   
