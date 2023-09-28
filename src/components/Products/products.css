@@ -44,14 +44,19 @@
 }
 
 /* Style for buttons in ProductList */
-.product button {
+.buy-button,.product-details button, .view-details-link  {
   background-color: #007bff;
   color: #fff;
   border: none;
+  border-radius: 10px;
   padding: 5px 10px;
   cursor: pointer;
   margin-top: 10px;
   margin-right: 10px; /* Add a margin to the right */
+}
+
+.view-details-link{
+  text-decoration: none;
 }
 
 .product button:hover {
@@ -89,17 +94,6 @@
 .product-details p{
   font-size: 16px;
   margin: 5px 0;
-}
-
-/* Style for buttons in ProductSingle */
-.product-details button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 10px;
-  margin-right: 10px; 
 }
 
 .product-details button:hover {
