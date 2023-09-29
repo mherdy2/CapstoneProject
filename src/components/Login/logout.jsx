@@ -5,8 +5,7 @@ import './login.css'
 
 const Logout = ({setLoggedIn}) => {
   const navigate = useNavigate();
-  const handleLogout = () => {
-   
+  const handleLogout = () => {   
     setLoggedIn(false);
     navigate("/")
   };
