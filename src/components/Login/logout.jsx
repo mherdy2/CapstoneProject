@@ -1,11 +1,14 @@
 // Logout.js
+import { useNavigate } from 'react-router-dom';
 import './login.css'
 
 
-const Logout = ({ onLogout }) => {
+const Logout = ({setLoggedIn}) => {
+  const navigate = useNavigate();
   const handleLogout = () => {
    
-    onLogout();
+    setLoggedIn(false);
+    navigate("/")
   };
 
   return (
