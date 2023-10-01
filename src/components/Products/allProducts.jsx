@@ -76,7 +76,7 @@ function ProductList() {
               src={product.image}
               alt={product.title}
               className="product-image"
-              style={{ width: '200px' }}
+              style={{ width: '200px', height: '250px'}}
             />
             <div className="button-container">
               <button className="buy-button" onClick={() => addToCart(product)}>Buy</button>
